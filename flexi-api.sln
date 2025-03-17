@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "flexi.API", "flexi.API\flexi.API.csproj", "{A3DE6949-E620-447B-BF0F-1E3AEC9EA380}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechTalk.DatabaseAccessor", "TechTalk.DatabaseAccessor\TechTalk.DatabaseAccessor.csproj", "{2F8D3046-E9A2-4F82-8536-2C3E90B0DCFA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "flexi.Logic", "flexi.Logic\flexi.Logic.csproj", "{F1FA548E-991B-4FFE-972B-4E93FB0A5161}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "flexi.Repository", "flexi.Repository\flexi.Repository.csproj", "{A1A6925D-41E6-4387-816B-5557FE566144}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A3DE6949-E620-447B-BF0F-1E3AEC9EA380}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3DE6949-E620-447B-BF0F-1E3AEC9EA380}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3DE6949-E620-447B-BF0F-1E3AEC9EA380}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3DE6949-E620-447B-BF0F-1E3AEC9EA380}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F8D3046-E9A2-4F82-8536-2C3E90B0DCFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F8D3046-E9A2-4F82-8536-2C3E90B0DCFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F8D3046-E9A2-4F82-8536-2C3E90B0DCFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F8D3046-E9A2-4F82-8536-2C3E90B0DCFA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1FA548E-991B-4FFE-972B-4E93FB0A5161}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1FA548E-991B-4FFE-972B-4E93FB0A5161}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1FA548E-991B-4FFE-972B-4E93FB0A5161}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1FA548E-991B-4FFE-972B-4E93FB0A5161}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1A6925D-41E6-4387-816B-5557FE566144}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1A6925D-41E6-4387-816B-5557FE566144}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1A6925D-41E6-4387-816B-5557FE566144}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1A6925D-41E6-4387-816B-5557FE566144}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
