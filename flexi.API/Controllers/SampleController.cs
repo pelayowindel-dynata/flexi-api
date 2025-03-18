@@ -11,18 +11,18 @@ namespace flexi.API.Controllers
   [Route("api/[controller]")]
   public class SampleController : ControllerBase
   {
-    private IDatabaseAccessor _databaseAccessor;
+    // private IDatabaseAccessor _databaseAccessor;
 
-    public SampleController(IDatabaseAccessor databaseAccessor)
-    {
-      _databaseAccessor = databaseAccessor ?? throw new ArgumentNullException(nameof(databaseAccessor));
-    }
+    // public SampleController(IDatabaseAccessor databaseAccessor)
+    // {
+    //   _databaseAccessor = databaseAccessor ?? throw new ArgumentNullException(nameof(databaseAccessor));
+    // }
 
-    [HttpGet]
-    public async Task<IActionResult> Get(){
-      var sql = @"Select * from sample_table";
-      var result = await _databaseAccessor.QueryAsync<object>(sql);
-      return Ok(result);
-    }
+    // [HttpGet]
+    // public async Task<IActionResult> Get(){
+    //   var sql = @"Select * from sample_table";
+    //   var result = await _databaseAccessor.QueryAsync<object>(sql);
+    //   return Ok(result);
+    // }
   }
 }
