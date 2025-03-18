@@ -1,6 +1,22 @@
+using TechTalk.DatabaseAccessor.Models;
+using TechTalk.DatabaseAccessor.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Configuration
+  .AddJsonFile("appsettings.json")
+  .AddJsonFile($"appsettings.{builder.Environment.EnvironmentName}.json", true)
+  .Build();
+
+var configuration = builder.Configuration;
+
 // Add services to the container.
+var databaseCredentials = configuration.GetSection(nameof(DatabaseCredential)).Get<DatabaseCredential>();
+databaseCredentials!.Validate();
+builder.Services.AddSingleton(databaseCredentials);
+builder.Services.AddSingleton<IDatabaseAccessor, MySqlDatabaseAccessor>();
+
+builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -16,29 +32,8 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-var summaries = new[]
-{
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
+app.UseAuthorization();
 
-app.MapGet("/weatherforecast", () =>
-{
-    var forecast =  Enumerable.Range(1, 5).Select(index =>
-        new WeatherForecast
-        (
-            DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            Random.Shared.Next(-20, 55),
-            summaries[Random.Shared.Next(summaries.Length)]
-        ))
-        .ToArray();
-    return forecast;
-})
-.WithName("GetWeatherForecast")
-.WithOpenApi();
+app.MapControllers();
 
 app.Run();
-
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}
