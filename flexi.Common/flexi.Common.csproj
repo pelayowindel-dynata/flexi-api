@@ -6,9 +6,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\flexi.Entities\flexi.Entities.csproj" />
-    <ProjectReference Include="..\TechTalk.DatabaseAccessor\TechTalk.DatabaseAccessor.csproj" />
-  </ItemGroup>
-
 </Project>
