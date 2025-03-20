@@ -1,5 +1,7 @@
 using TechTalk.DatabaseAccessor.Models;
 using TechTalk.DatabaseAccessor.Services;
+using flexi.Repository;
+using flexi.Logic;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +17,8 @@ var databaseCredentials = configuration.GetSection(nameof(DatabaseCredential)).G
 databaseCredentials!.Validate();
 builder.Services.AddSingleton(databaseCredentials);
 builder.Services.AddSingleton<IDatabaseAccessor, MySqlDatabaseAccessor>();
+builder.Services.AddSingleton<IVenueRepository, VenueRepository>();
+builder.Services.AddSingleton<IVenueLogic, VenueLogic>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -26,8 +30,8 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+  app.UseSwagger();
+  app.UseSwaggerUI();
 }
 
 app.UseHttpsRedirection();
