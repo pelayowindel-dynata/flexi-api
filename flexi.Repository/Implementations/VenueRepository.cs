@@ -20,14 +20,14 @@ public class VenueRepository : IVenueRepository
         return await _databaseAccessor.QueryAsync<Venue>(sql);
     }
 
+    private const string InsertVenueSql = $@"
+        INSERT INTO {tableName} (VenueName, VenueCapacity) 
+        VALUES (@VenueName, @VenueCapacity);
+        SELECT LAST_INSERT_ID();";
+
     public async Task<Venue> AddVenue(Venue venueInfo)
     {
-        string sql = $@"
-            INSERT INTO {tableName} (VenueName, VenueCapacity) 
-            VALUES (@VenueName, @VenueCapacity);
-            SELECT LAST_INSERT_ID();";
-
-        int newId = await _databaseAccessor.InsertScalarAsync<int>(sql, venueInfo);
+        int newId = await _databaseAccessor.InsertScalarAsync<int>(InsertVenueSql, venueInfo);
         return venueInfo with { VenueId = newId };
     }
 }
