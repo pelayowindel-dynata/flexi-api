@@ -23,7 +23,7 @@ public class VenueController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> AddVenue([FromBody] Venue venue)
+    public async Task<IActionResult> AddVenue(Venue venue)
     {
         if (venue == null || string.IsNullOrWhiteSpace(venue.VenueName) || venue.VenueCapacity <= 0)
         {
