@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "flexi.Repository", "flexi.R
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "flexi.Entities", "flexi.Entities\flexi.Entities.csproj", "{5F2DAD6A-469B-4E95-837A-158D01E76FA7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "flexi.Common", "flexi.Common\flexi.Common.csproj", "{7F90E228-CFCD-4429-8784-E3CF75C134A5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,5 +44,9 @@ Global
 		{5F2DAD6A-469B-4E95-837A-158D01E76FA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F2DAD6A-469B-4E95-837A-158D01E76FA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5F2DAD6A-469B-4E95-837A-158D01E76FA7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F90E228-CFCD-4429-8784-E3CF75C134A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F90E228-CFCD-4429-8784-E3CF75C134A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F90E228-CFCD-4429-8784-E3CF75C134A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F90E228-CFCD-4429-8784-E3CF75C134A5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

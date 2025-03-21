@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS venue (
+  venueId INT(11) NOT NULL AUTO_INCREMENT,
+  venueName VARCHAR(255) NOT NULL,
+  venueCapacity INT(11) NOT NULL,
+  PRIMARY KEY (venueId)
+);
