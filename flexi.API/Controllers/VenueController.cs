@@ -16,21 +16,24 @@ public class VenueController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<IActionResult> GetAllVenues() 
+    public async Task<IActionResult> GetAllVenues()
     {
-        var venues = await _venueLogic.GetAllVenues(); 
+        var venues = await _venueLogic.GetAllVenues();
         return Ok(venues);
     }
 
     [HttpPost]
     public async Task<IActionResult> AddVenue(Venue venue)
     {
-        if (venue == null || string.IsNullOrWhiteSpace(venue.VenueName) || venue.VenueCapacity <= 0)
-        {
-            return BadRequest("Invalid venue data.");
+        if (venue == null){
+            return BadRequest("Venue cannot be null.");
         }
 
-        var addedVenue = await _venueLogic.AddVenue(venue);
-        return Ok(addedVenue);
+        try {
+            var addedVenue = await _venueLogic.AddVenue(venue);
+            return Ok(addedVenue);
+        } catch (ArgumentException ex){
+            return BadRequest(ex.Message);
+        }
     }
 }
