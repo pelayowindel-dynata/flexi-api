@@ -16,11 +16,15 @@ public class VenueLogic : IVenueLogic
     {
         return await _venueRepo.GetAllVenues();
     }
-    
+
     public async Task<Venue> AddVenue(Venue venueInfo)
     {
         ArgumentException.ThrowIfNullOrWhiteSpace(venueInfo.VenueName, nameof(venueInfo.VenueName));
-    
+        if (venueInfo.VenueCapacity <= 0)
+        {
+            throw new ArgumentException("Venue capacity must be greater than zero.", nameof(venueInfo.VenueCapacity));
+        }
+
         return await _venueRepo.AddVenue(venueInfo);
     }
 }
