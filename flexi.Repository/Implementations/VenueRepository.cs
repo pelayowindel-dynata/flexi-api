@@ -8,6 +8,8 @@ namespace flexi.Repository
     {
         private readonly IDatabaseAccessor _databaseAccessor;
 
+        private const string tableName = "venue";
+
         public VenueRepository(IDatabaseAccessor databaseAccessor)
         {
             _databaseAccessor = databaseAccessor;
@@ -15,16 +17,16 @@ namespace flexi.Repository
 
         public async Task<IEnumerable<Venue>> GetAllVenues()
         {
-            string sql = "SELECT * FROM venue";
+            string sql = $"SELECT * FROM {tableName}";
             return await _databaseAccessor.QueryAsync<Venue>(sql);
         }
 
         public async Task<Venue> AddVenue(Venue venueInfo)
         {
-            string sql = @"
-            INSERT INTO venue (VenueName, VenueCapacity) 
+            string sql = $@"
+            INSERT INTO {tableName} (VenueName, VenueCapacity) 
             VALUES (@VenueName, @VenueCapacity);
-            SELECT LAST_INSERT_ID();";
+            SELECT LAST_INSERT_ID();"; 
 
             int newId = await _databaseAccessor.InsertScalarAsync<int>(sql, venueInfo);
             venueInfo.VenueId = newId;
