@@ -4,6 +4,6 @@ namespace flexi.Logic;
 
 public interface IVenueLogic
 {
-    public Task<IEnumerable<Venue>> GetAllVenues();
-    public Task<Venue> AddVenue(Venue venueInfo);
+    Task<IEnumerable<Venue>> GetAllVenues();
+    Task<Venue> AddVenue(Venue venueInfo);
 }
