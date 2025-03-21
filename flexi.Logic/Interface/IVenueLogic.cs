@@ -1,3 +1,4 @@
+using flexi.Common.DTO;
 using flexi.Entities;
 
 namespace flexi.Logic;
@@ -5,5 +6,5 @@ namespace flexi.Logic;
 public interface IVenueLogic
 {
     Task<IEnumerable<Venue>> GetAllVenues();
-    Task<Venue> AddVenue(Venue venueInfo);
+    Task<Venue> AddVenue(CreateVenueDto venueInfo);
 }

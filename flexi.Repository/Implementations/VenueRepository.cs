@@ -1,3 +1,4 @@
+using flexi.Common.Model;
 using flexi.Entities;
 using TechTalk.DatabaseAccessor.Services;
 
@@ -28,11 +29,17 @@ public class VenueRepository : IVenueRepository
         return await _databaseAccessor.QueryAsync<Venue>(sql);
     }
 
-    public async Task<Venue> AddVenue(Venue venueInfo)
+    public async Task<Venue> AddVenue(CreateVenue createVenue)
     {
         int newId = await _databaseAccessor
-          .InsertScalarAsync<int>(InsertVenueSql, venueInfo);
-          
-        return venueInfo with { VenueId = newId };
+          .InsertScalarAsync<int>(InsertVenueSql, createVenue);
+
+        Venue venue= new Venue{
+          VenueId = newId,
+          VenueName = createVenue.VenueName,
+          VenueCapacity = createVenue.VenueCapacity,
+        };
+
+        return venue;
     }
 }

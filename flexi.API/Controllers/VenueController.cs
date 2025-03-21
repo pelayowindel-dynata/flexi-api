@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using flexi.Logic;
-using flexi.Entities;
+using flexi.Common.DTO;
 
 namespace flexi.API.Controllers;
 
@@ -23,7 +23,7 @@ public class VenueController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> AddVenue(Venue venue)
+    public async Task<IActionResult> AddVenue(CreateVenueDto venue)
     {
         if (venue == null)
         {

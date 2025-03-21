@@ -1,3 +1,5 @@
+using flexi.Common.DTO;
+using flexi.Common.Model;
 using flexi.Entities;
 using flexi.Repository;
 
@@ -17,18 +19,23 @@ public class VenueLogic : IVenueLogic
         return await _venueRepo.GetAllVenues();
     }
 
-    public async Task<Venue> AddVenue(Venue venueInfo)
+    public async Task<Venue> AddVenue(CreateVenueDto createVenueDto)
     {
         ArgumentException.ThrowIfNullOrWhiteSpace(
-          venueInfo.VenueName, nameof(venueInfo.VenueName));
+          createVenueDto.VenueName, nameof(createVenueDto.VenueName));
         
-        if (venueInfo.VenueCapacity <= 0)
+        if (createVenueDto.VenueCapacity <= 0)
         {
             throw new ArgumentException(
               "Venue capacity must be greater than zero.", 
-              nameof(venueInfo.VenueCapacity));
+              nameof(createVenueDto.VenueCapacity));
         }
 
-        return await _venueRepo.AddVenue(venueInfo);
+        CreateVenue createVenue = new CreateVenue{
+          VenueName = createVenueDto.VenueName,
+          VenueCapacity = createVenueDto.VenueCapacity
+        };
+
+        return await _venueRepo.AddVenue(createVenue);
     }
 }

@@ -1,8 +1,9 @@
+using flexi.Common.Model;
 using flexi.Entities;
 
 namespace flexi.Repository;
 public interface IVenueRepository
 {
     Task<IEnumerable<Venue>> GetAllVenues();
-    Task<Venue> AddVenue(Venue venueInfo);
+    Task<Venue> AddVenue(CreateVenue venueInfo);
 }
