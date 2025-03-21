@@ -1,9 +1,9 @@
 namespace flexi.Entities
 {
-    public class Venue
+    public record Venue
     {
-        public int VenueId { get; set; }
-        public string VenueName { get; set; } = string.Empty;
-        public int VenueCapacity { get; set; }
+        public int VenueId { get; init; }
+        public string VenueName { get; init; } = string.Empty;
+        public int VenueCapacity { get; init; }
     }
 }

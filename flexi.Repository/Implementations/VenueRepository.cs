@@ -28,7 +28,6 @@ public class VenueRepository : IVenueRepository
             SELECT LAST_INSERT_ID();";
 
         int newId = await _databaseAccessor.InsertScalarAsync<int>(sql, venueInfo);
-        venueInfo.VenueId = newId;
-        return venueInfo;
+        return venueInfo with { VenueId = newId };
     }
 }
