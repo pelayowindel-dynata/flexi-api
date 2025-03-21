@@ -25,14 +25,18 @@ public class VenueController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> AddVenue(Venue venue)
     {
-        if (venue == null){
+        if (venue == null)
+        {
             return BadRequest("Venue cannot be null.");
         }
 
-        try {
+        try 
+        {
             var addedVenue = await _venueLogic.AddVenue(venue);
             return Ok(addedVenue);
-        } catch (ArgumentException ex){
+        } 
+        catch (ArgumentException ex)
+        {
             return BadRequest(ex.Message);
         }
     }

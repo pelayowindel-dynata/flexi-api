@@ -19,10 +19,14 @@ public class VenueLogic : IVenueLogic
 
     public async Task<Venue> AddVenue(Venue venueInfo)
     {
-        ArgumentException.ThrowIfNullOrWhiteSpace(venueInfo.VenueName, nameof(venueInfo.VenueName));
+        ArgumentException.ThrowIfNullOrWhiteSpace(
+          venueInfo.VenueName, nameof(venueInfo.VenueName));
+        
         if (venueInfo.VenueCapacity <= 0)
         {
-            throw new ArgumentException("Venue capacity must be greater than zero.", nameof(venueInfo.VenueCapacity));
+            throw new ArgumentException(
+              "Venue capacity must be greater than zero.", 
+              nameof(venueInfo.VenueCapacity));
         }
 
         return await _venueRepo.AddVenue(venueInfo);
