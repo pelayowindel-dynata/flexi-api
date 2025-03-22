@@ -11,6 +11,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\flexi.Entities\flexi.Entities.csproj" />
+    <ProjectReference Include="..\flexi.Logic\flexi.Logic.csproj" />
+    <ProjectReference Include="..\flexi.Repository\flexi.Repository.csproj" />
     <ProjectReference Include="..\TechTalk.DatabaseAccessor\TechTalk.DatabaseAccessor.csproj" />
   </ItemGroup>
 

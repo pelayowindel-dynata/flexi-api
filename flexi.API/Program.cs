@@ -1,5 +1,7 @@
 using TechTalk.DatabaseAccessor.Models;
 using TechTalk.DatabaseAccessor.Services;
+using flexi.Logic;
+using flexi.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +17,8 @@ var databaseCredentials = configuration.GetSection(nameof(DatabaseCredential)).G
 databaseCredentials!.Validate();
 builder.Services.AddSingleton(databaseCredentials);
 builder.Services.AddSingleton<IDatabaseAccessor, MySqlDatabaseAccessor>();
+builder.Services.AddSingleton<IStudentRepository, StudentRepository>();
+builder.Services.AddSingleton<IStudentLogic, StudentLogic>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

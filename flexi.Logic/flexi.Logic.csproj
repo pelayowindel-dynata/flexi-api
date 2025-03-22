@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\flexi.Entities\flexi.Entities.csproj" />
+    <ProjectReference Include="..\flexi.Repository\flexi.Repository.csproj" />
+  </ItemGroup>
+
 </Project>
